@@ -1,2 +1,4 @@
-# SimpleBookStore-BackEnd
-Backend repository to a Simple Book Store Proyect
+# Simple Book Store
+## Back-End
+
+Back-end repository to a Simple Book Store Proyect
