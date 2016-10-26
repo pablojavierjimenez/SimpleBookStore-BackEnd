@@ -7,8 +7,8 @@ Back-end repository to a Simple Book Store Proyect
 
 1. Download php for windows (10) : http://windows.php.net/download/
 2. Create a folder ( C:\php )
-  .1. rename file php.iniDevelopment to php.ini
-  .2. Uncomment that comandas:
+  ..1. rename file php.iniDevelopment to php.ini
+  ..2. Uncomment that comandas:
   ..* extension_dir = "ext"
   ..* php_mysql.dll
   ..* php_mysqli.dll
