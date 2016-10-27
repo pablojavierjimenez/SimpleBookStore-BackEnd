@@ -6,8 +6,10 @@ Simple Book Store: BackEnd
 	- [Build](#build)
 - [Design](#design)
 - [Technology Stack](#technology-stack)
-	- [NPM Dev dependencies](#npm-dev-dependencies)
-	- [Naming & Selectors](#naming-&-selectors)
+	- [Installing PHP on windows 10](installing-php-on-windows-10)
+	- [Installing Composer (php package manager)](#installing-composer-php-package-manager)
+	- [Configure virtual host](#Configure-virtual-host)
+	- [Laravel PHP Framework 5.3](#Laravel-PHP-Framework-5.3)
 
 
 Installation
@@ -24,15 +26,6 @@ Installation
 	git checkout develop
 	```
 
-
-
-
-
-
-
-
-
-
 technology-stack
 ----------------
 #### Installing PHP on windows 10
@@ -46,24 +39,24 @@ technology-stack
     - php_mysqli.dll
 3. on windows go to  _Control panel > System and security > System_ then to _Advance Sistem Settings_ and in advance tab, click on enviroment variables
 
-then open the comand line and test
-```bash
-php -v
-```
-if you need to see a reference check this [video tutorial](https://youtu.be/kuMTZowwjus?t=3m14s)
+	then open the comand line and test
+	```bash
+	php -v
+	```
+	if you need to see a reference check this [video tutorial](https://youtu.be/kuMTZowwjus?t=3m14s)
 
 #### Installing Composer (php package manager)
 1. From this site: [Download Composer](https://getcomposer.org/download/)
-2. Download and run Composer-Setup.exe, and whend the instalation program request to you, put a root for php.exe, were you installed php eg:  C:\php\php.exe
+2. Download and run Composer-Setup.exe, and whend the instalation program request to you, put a root for php.exe, were you installed php eg: C:\php\php.exe
 
-then open the comand line and test
-```bash
-composer -version
-```
-**NOTE:** its just in case or for other proyect here is the command to start a proyect
-```bash
-composer create-project laravel/laravel nombre_del_proyecto --prefer-dist
-```
+	then open the comand line and test
+	```bash
+	composer -version
+	```
+	**NOTE:** its just in case or for other proyect here is the command to start a proyect
+	```bash
+	composer create-project laravel/laravel nombre_del_proyecto --prefer-dist
+	```
 
 #### Configure virtual host
 
@@ -115,6 +108,29 @@ composer create-project laravel/laravel nombre_del_proyecto --prefer-dist
 	```
 3. __.htacces configuration__
 
+	Create a file __.htacces__ and put this code on it
+	```apache
+		# Webempresa.com
+		# Redireccion de dominio principal a subdirectorio
+		# Copiar y pegar y modificar según necesidades
+		# Esta linea no quitarla
+		RewriteEngine on
+		# Cambiar sudominio.com por su nombre de dominio
+		RewriteCond %{HTTP_HOST} ^(www.)?simplebookstore.dev$
+		# Cambiar 'subdirectory' por el nombre del subdirectorio que quiere usar
+		RewriteCond %{REQUEST_URI} !^/public/
+		# No cambiar estas lineas.
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteCond %{REQUEST_FILENAME} !-d
+		# Cambiar 'subdirectory' por el nombre del subdirectorio que quiere usar
+		RewriteRule ^(.*)$ /public/$1
+		# Cambiar sudominio.com por su nombre de dominio
+		# Cambiar 'subdirectory' por el nombre del subdirectorio que quiere usar
+		# followed by / then the main file for your site, index.php, index.html, etc.
+		RewriteCond %{HTTP_HOST} ^(www.)?simplebookstore.dev$
+		RewriteRule ^(/)?$ public/index.php [L]
+	```
+	
 
 #### Laravel PHP Framework 5.3
 
